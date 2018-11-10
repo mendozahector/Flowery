@@ -9,12 +9,20 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var scrollView: UITextView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
     }
-
-
+    
+    //MARK: - Camera was tapped
+    @IBAction func cameraTapped(_ sender: UIBarButtonItem) {
+        
+        
+    }
+    
 }
 
