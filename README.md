@@ -1,7 +1,7 @@
 # Flowery
 Converting pre-trained models using CoreML Tools
 
-- User's pick camera/photo library to chose photo.
+- User's pick camera/photo library to choose photo.
 - CoreML is used to detect flower category.
 - Flower information is pulled from Wikipedia's API (Description + Image).
 - UI is updated respectively with dominant image color as UIBarTint.
