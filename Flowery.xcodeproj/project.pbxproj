@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E0F65035CA1C4878D315E4E /* Pods_Flowery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 392938C8ABD95048BD6E088A /* Pods_Flowery.framework */; };
 		3EC7D6462197272900CF2EAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC7D6452197272900CF2EAA /* AppDelegate.swift */; };
 		3EC7D6482197272900CF2EAA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC7D6472197272900CF2EAA /* ViewController.swift */; };
 		3EC7D64B2197272900CF2EAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC7D6492197272900CF2EAA /* Main.storyboard */; };
@@ -15,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B4B7DEF590796DE1A42DA04 /* Pods-Flowery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flowery.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flowery/Pods-Flowery.release.xcconfig"; sourceTree = "<group>"; };
+		392938C8ABD95048BD6E088A /* Pods_Flowery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flowery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EC7D6422197272900CF2EAA /* Flowery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flowery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EC7D6452197272900CF2EAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EC7D6472197272900CF2EAA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,7 @@
 		3EC7D64C2197272B00CF2EAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3EC7D64F2197272B00CF2EAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3EC7D6512197272B00CF2EAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		514A5AB895E33880D154EFC6 /* Pods-Flowery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flowery.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Flowery/Pods-Flowery.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E0F65035CA1C4878D315E4E /* Pods_Flowery.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E10B4C515564B7BBBC215D1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				392938C8ABD95048BD6E088A /* Pods_Flowery.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3EC7D6392197272900CF2EAA = {
 			isa = PBXGroup;
 			children = (
 				3EC7D6442197272900CF2EAA /* Flowery */,
 				3EC7D6432197272900CF2EAA /* Products */,
+				7AD048F2EFF3919CC3CCAE4E /* Pods */,
+				1E10B4C515564B7BBBC215D1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +79,15 @@
 			path = Flowery;
 			sourceTree = "<group>";
 		};
+		7AD048F2EFF3919CC3CCAE4E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				514A5AB895E33880D154EFC6 /* Pods-Flowery.debug.xcconfig */,
+				1B4B7DEF590796DE1A42DA04 /* Pods-Flowery.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3EC7D6542197272B00CF2EAA /* Build configuration list for PBXNativeTarget "Flowery" */;
 			buildPhases = (
+				D23E8444724CF3EB837AE83E /* [CP] Check Pods Manifest.lock */,
 				3EC7D63E2197272900CF2EAA /* Sources */,
 				3EC7D63F2197272900CF2EAA /* Frameworks */,
 				3EC7D6402197272900CF2EAA /* Resources */,
+				8B73FFDCE33885C13A21E9D5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +155,59 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8B73FFDCE33885C13A21E9D5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Flowery/Pods-Flowery-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/ColorThiefSwift/ColorThiefSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ColorThiefSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Flowery/Pods-Flowery-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D23E8444724CF3EB837AE83E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Flowery-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3EC7D63E2197272900CF2EAA /* Sources */ = {
@@ -280,6 +359,7 @@
 		};
 		3EC7D6552197272B00CF2EAA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 514A5AB895E33880D154EFC6 /* Pods-Flowery.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +378,7 @@
 		};
 		3EC7D6562197272B00CF2EAA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B4B7DEF590796DE1A42DA04 /* Pods-Flowery.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
