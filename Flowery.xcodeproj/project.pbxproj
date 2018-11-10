@@ -69,14 +69,38 @@
 		3EC7D6442197272900CF2EAA /* Flowery */ = {
 			isa = PBXGroup;
 			children = (
-				3EC7D6452197272900CF2EAA /* AppDelegate.swift */,
-				3EC7D6472197272900CF2EAA /* ViewController.swift */,
-				3EC7D6492197272900CF2EAA /* Main.storyboard */,
+				3EC8A4C321972DFF00B27909 /* Model */,
+				3EC8A4C221972DF900B27909 /* View */,
+				3EC8A4C121972DEE00B27909 /* Controller */,
 				3EC7D64C2197272B00CF2EAA /* Assets.xcassets */,
-				3EC7D64E2197272B00CF2EAA /* LaunchScreen.storyboard */,
 				3EC7D6512197272B00CF2EAA /* Info.plist */,
 			);
 			path = Flowery;
+			sourceTree = "<group>";
+		};
+		3EC8A4C121972DEE00B27909 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3EC7D6452197272900CF2EAA /* AppDelegate.swift */,
+				3EC7D6472197272900CF2EAA /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3EC8A4C221972DF900B27909 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3EC7D6492197272900CF2EAA /* Main.storyboard */,
+				3EC7D64E2197272B00CF2EAA /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3EC8A4C321972DFF00B27909 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		7AD048F2EFF3919CC3CCAE4E /* Pods */ = {
