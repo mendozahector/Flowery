@@ -9,6 +9,10 @@
 import UIKit
 import CoreML
 import Vision
+import Alamofire
+import SwiftyJSON
+import SDWebImage
+import ColorThiefSwift
 
 class ViewController: UIViewController {
     
@@ -16,6 +20,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var scrollView: UITextView!
     
     let imagePicker = UIImagePickerController()
+    let wikipediaURl = "https://en.wikipedia.org/w/api.php"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +69,7 @@ class ViewController: UIViewController {
             
             self.navigationItem.title = result.identifier.capitalized
             
-            //self.requestInfo(flowerName: result.identifier)
+            self.requestInfo(flowerName: result.identifier)
             
         }
         
@@ -75,6 +80,51 @@ class ViewController: UIViewController {
         }
         catch {
             print(error)
+        }
+    }
+    
+    
+    func requestInfo(flowerName: String) {
+        
+        let parameters : [String:String] = ["format" : "json", "action" : "query", "prop" : "extracts|pageimages", "exintro" : "", "explaintext" : "", "titles" : flowerName, "redirects" : "1", "pithumbsize" : "500", "indexpageids" : ""]
+        
+        Alamofire.request(wikipediaURl, method: .get, parameters: parameters).responseJSON { (response) in
+            if response.result.isSuccess {
+                
+                let flowerJSON: JSON = JSON(response.result.value!)
+                
+                let pageid = flowerJSON["query"]["pageids"][0].stringValue
+                
+                let flowerDescription = flowerJSON["query"]["pages"][pageid]["extract"].stringValue
+                let flowerImageURL = flowerJSON["query"]["pages"][pageid]["thumbnail"]["source"].stringValue
+                
+                self.scrollView.text = flowerDescription
+                
+                self.imageView.sd_setImage(with: URL(string: flowerImageURL), completed: { (image, error,  cache, url) in
+                    
+                    if let currentImage = self.imageView.image {
+                        
+                        guard let dominantColor = ColorThief.getColor(from: currentImage) else {
+                            fatalError("Can't get dominant color")
+                        }
+                        
+                        DispatchQueue.main.async {
+                            self.navigationController?.navigationBar.isTranslucent = true
+                            self.navigationController?.navigationBar.barTintColor = dominantColor.makeUIColor()
+                        }
+                        
+                    } else {
+                        self.imageView.image = image
+                        self.scrollView.text = "Could not get information on flower from Wikipedia."
+                    }
+                    
+                })
+                
+            } else {
+                print("Error \(String(describing: response.result.error))")
+                self.scrollView.text = "Connection Issues"
+                
+            }
         }
     }
     
