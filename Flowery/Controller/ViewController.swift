@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CoreML
+import Vision
 
 class ViewController: UIViewController {
     
@@ -23,7 +25,8 @@ class ViewController: UIViewController {
         
     }
     
-    //MARK: - Camera was tapped
+    
+    //MARK: - Get photo from user.
     @IBAction func cameraTapped(_ sender: UIBarButtonItem) {
         
         let actionSheet = UIAlertController(title: "Photo Source:", message: "Please choose a source.", preferredStyle: .actionSheet)
@@ -47,6 +50,34 @@ class ViewController: UIViewController {
         present(actionSheet, animated: true, completion: nil)
     }
     
+    
+    func detect(image: CIImage) {
+        
+        guard let model = try? VNCoreMLModel(for: FlowerClassifier().model) else {
+            fatalError("Loading CoreML Model Failed")
+        }
+        
+        let request = VNCoreMLRequest(model: model) { (request, error) in
+            guard let result = request.results?.first as? VNClassificationObservation else {
+                fatalError("Could not complete classfication")
+            }
+            
+            self.navigationItem.title = result.identifier.capitalized
+            
+            //self.requestInfo(flowerName: result.identifier)
+            
+        }
+        
+        let handler = VNImageRequestHandler(ciImage: image)
+        
+        do {
+            try handler.perform([request])
+        }
+        catch {
+            print(error)
+        }
+    }
+    
 }
 
 
@@ -56,8 +87,20 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-        //Image was picked
+        if let userPickedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            guard let ciImage = CIImage(image: userPickedImage) else {
+                fatalError("Could not convert to CIImage")
+            }
+            
+            detect(image: ciImage)
+        }
+        
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
     
 }
-
